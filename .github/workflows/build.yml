@@ -52,7 +52,7 @@ jobs:
         uses: esphome/build-action@v3.0.0
         id: esphome-build2
         with:
-          yaml_file: Integrations/ESPHome/${{ env.UPPERCASE_DEVICE_NAME }}_nb.yaml
+          yaml_file: Integrations/ESPHome/${{ env.UPPERCASE_DEVICE_NAME }}_NB.yaml
           version: 'latest'
           cache: true
 
