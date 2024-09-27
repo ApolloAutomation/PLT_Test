@@ -52,7 +52,7 @@ jobs:
         uses: esphome/build-action@v3.0.0
         id: esphome-build2
         with:
-          yaml_file: Integrations/ESPHome/${{ env.UPPERCASE_DEVICE_NAME }}_NB.yaml
+          yaml_file: Integrations/ESPHome/${{ env.UPPERCASE_DEVICE_NAME }}_nb.yaml
           version: 'latest'
           cache: true
 
@@ -62,7 +62,7 @@ jobs:
           mv ${{ steps.esphome-build2.outputs.name }}/* output/
           echo ${{ steps.esphome-build2.outputs.version }} > output/version
           # Extract MD5 checksum of firmware.ota.bin
-          MD5_CHECKSUM_NB=$(jq -r '.ota.md5' output/manifest_nb.json)
+          MD5_CHECKSUM_NB=$(jq -r '_nb.ota.md5' output/manifest_nb.json)
           echo "MD5_CHECKSUM_NB=$MD5_CHECKSUM_NB" >> $GITHUB_ENV
 
           # Create new manifest.json with jq

@@ -1,3 +1,8 @@
+substitutions:
+  name: apollo-plt-1
+  version: "24.8.26.1"
+  device_description: ${name} made by Apollo Automation - version ${version}.
+  
 external_components:
   - source: github://ApolloAutomation/esphome-battery-component
     components: [max17048] #Forked OptionZero

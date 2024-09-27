@@ -1,3 +1,8 @@
+substitutions:
+  name: apollo-plt-1-nb
+  version: "24.8.26.1"
+  device_description: ${name} made by Apollo Automation - version ${version}.
+
 deep_sleep:
   id: deep_sleep_1
   sleep_duration: 5min
