@@ -69,7 +69,7 @@ jobs:
           jq -n --arg name "${{ env.DEVICE_NAME }}" \
                  --arg version "${{ env.project_version }}" \
                  --arg md5 "$MD5_CHECKSUMB" \
-                 '{name: $name, version: $version, home_assistant_domain: "esphome", new_install_prompt_erase: false, builds: [{chipFamily: "ESP32-C3", parts: [{path: "apollo-${{ env.DEVICE_NAME }}B-esp32c3.factory.bin", offset: 0}], ota: {path: "apollo-${{ env.DEVICE_NAME }}B-esp32c3.ota.bin", md5: $md5}}]}' > output/manifest_b.json
+                 '{name: $name, version: $version, home_assistant_domain: "esphome", new_install_prompt_erase: false, builds: [{chipFamily: "ESP32-C3", parts: [{path: "apollo-${{ env.DEVICE_NAME }}b-esp32c3.factory.bin", offset: 0}], ota: {path: "apollo-${{ env.DEVICE_NAME }}b-esp32c3.ota.bin", md5: $md5}}]}' > output/manifest_b.json
 
       - uses: actions/upload-artifact@v4.3.3
         with:
@@ -148,8 +148,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: output/apollo-${{ env.DEVICE_NAME }}B-esp32c3.ota.bin
-          asset_name: apollo-${{ env.DEVICE_NAME }}B-esp32c3.ota.bin
+          asset_path: output/apollo-${{ env.DEVICE_NAME }}b-esp32c3.ota.bin
+          asset_name: apollo-${{ env.DEVICE_NAME }}b-esp32c3.ota.bin
           asset_content_type: application/octet-stream
       
       - name: Upload manifest.json to Release

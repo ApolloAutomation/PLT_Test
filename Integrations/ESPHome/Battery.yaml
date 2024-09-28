@@ -1,5 +1,5 @@
 substitutions:
-  name: apollo-plt-1B
+  name: apollo-plt-1b
   version: "24.8.26.1"
   device_description: ${name} made by Apollo Automation - version ${version}.
   
