@@ -14,7 +14,7 @@ esphome:
   on_boot:
     priority: 800.0
     then:
-      - switch.turn_on: accessory_power
+      
       - lambda: |-
           id(deep_sleep_1).set_run_duration(id(deep_sleep_run_duration).state * 1000);
           id(deep_sleep_1).set_sleep_duration(id(deep_sleep_sleep_duration).state * 60 * 60 * 1000);
@@ -26,11 +26,10 @@ esphome:
           then:
              - lambda: |- 
                 ESP_LOGW("Apollo", "Preventing Deep Sleep Due To OTA On Boot");
-                id(deep_sleep_1).prevent_deep_sleep(); 
+                id(deep_sleep_1).prevent_deep_sleep();
       
   on_shutdown:
     - light.turn_off: rgb_light
-    - switch.turn_off: accessory_power
 
 dashboard_import:
   package_import_url: github://ApolloAutomation/PLT-1/Integrations/ESPHome/PLT-1.yaml
@@ -71,4 +70,4 @@ logger:
 
 packages:
   core: !include Core.yaml
-  battery: !include Battery.yaml
+  battery: !include NonBattery.yaml
