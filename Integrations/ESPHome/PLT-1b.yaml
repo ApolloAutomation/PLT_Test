@@ -12,7 +12,7 @@ esphome:
 
   min_version: 2024.2.0
   on_boot:
-    priority: 800.0
+    priority: 600
     then:
       - switch.turn_on: accessory_power
       - lambda: |-
@@ -56,7 +56,7 @@ update:
   - platform: http_request
     id: firmware_update
     name: Firmware Update
-    source: https://apolloautomation.github.io/PLT-1/artifact/manifest_b.json
+    source: https://apolloautomation.github.io/PLT-1/firmware-b/manifest.json
 
 wifi:
   on_connect:
@@ -72,4 +72,3 @@ logger:
 packages:
   core: !include Core.yaml
   battery: !include Battery.yaml
-

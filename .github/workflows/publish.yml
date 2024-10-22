@@ -1,5 +1,4 @@
 name: Publish
-
 on:
   push:
     branches:
@@ -24,12 +23,13 @@ jobs:
       release-summary: ${{ github.event_name == 'release' && github.event.release.body || '' }}
       release-url: ${{ github.event_name == 'release' && github.event.release.html_url || '' }}
       release-version: ${{ (github.event_name == 'release' && github.event.release.tag_name) || (github.event_name == 'workflow_dispatch' && inputs.version) || '' }}
+  
   build-firmware-b:
     name: Build And Release
     uses: esphome/workflows/.github/workflows/build.yml@main
     with:
       files: |
-        Integrations/ESPHome/PLT-1b.yaml
+        Integrations/ESPHome/PLT-1B.yaml
       esphome-version: stable
       combined-name: firmware-b
       release-summary: ${{ github.event_name == 'release' && github.event.release.body || '' }}

@@ -14,7 +14,6 @@ esphome:
   on_boot:
     priority: 800.0
     then:
-      
       - lambda: |-
           id(deep_sleep_1).set_run_duration(id(deep_sleep_run_duration).state * 1000);
           id(deep_sleep_1).set_sleep_duration(id(deep_sleep_sleep_duration).state * 60 * 60 * 1000);
@@ -26,7 +25,7 @@ esphome:
           then:
              - lambda: |- 
                 ESP_LOGW("Apollo", "Preventing Deep Sleep Due To OTA On Boot");
-                id(deep_sleep_1).prevent_deep_sleep();  
+                id(deep_sleep_1).prevent_deep_sleep(); 
       
   on_shutdown:
     - light.turn_off: rgb_light
@@ -55,7 +54,7 @@ update:
   - platform: http_request
     id: firmware_update
     name: Firmware Update
-    source: https://apolloautomation.github.io/PLT-1/artifact/manifest.json
+    source: https://apolloautomation.github.io/PLT-1/firmware/manifest.json
 
 wifi:
   on_connect:
@@ -70,4 +69,5 @@ logger:
 
 packages:
   core: !include Core.yaml
-  battery: !include NonBattery.yaml
+  nonbattery: !include NonBattery.yaml
+
